@@ -10,4 +10,8 @@ d <- read_csv('data.csv') %>%
 oa_out <- oadoi_fetch(dois = d$doi, 
                     email = "your_email")
 
+# show summary of open access status
 oa_out %>% count(is_oa)
+
+# save open access results
+saveRDS(oa_out, 'openAccessResults.rds')
